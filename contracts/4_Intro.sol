@@ -24,4 +24,10 @@ contract intro{
         return cantidad;
 
     }
+
+    //funciones puras no modifican el estado
+    function obtenerSuma(uint256 primero, uint256 segundo) public pure returns(uint256){
+        return primero+segundo;
+    }
+
 }
