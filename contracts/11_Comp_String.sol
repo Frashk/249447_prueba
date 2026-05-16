@@ -9,8 +9,13 @@ contract Complejo1 {
 
     }
 
-
     function saludar()public view returns(string memory){
         return saludo;
+    }
+
+    function agregarSaludo(string memory texto) public view returns(string memory){
+        //return string.concat(saludo, texto);
+
+        return string(abi.encodePacked(saludo,texto));
     }
 }

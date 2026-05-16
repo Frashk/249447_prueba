@@ -40,11 +40,12 @@
         "burstAllowance": 4
       },
       "fileWritePermissions": {
-        "mode": "allow-specific",
+        "mode": "deny-all",
         "allowedFiles": [
-          "contracts/9_Modificadores.sol"
+          "contracts/9_Modificadores.sol",
+          "contracts/15_Mensajes.sol"
         ],
-        "lastPrompted": "2026-05-03T01:32:51.932Z"
+        "lastPrompted": "2026-05-10T00:58:02.385Z"
       }
     },
     "validation": {
