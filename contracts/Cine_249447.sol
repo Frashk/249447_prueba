@@ -14,6 +14,7 @@ contract Cine249447 {
 
     Pelicula[] public peliculas;
 
+
     modifier ejecutadoPor() {
         console.log("Ejecutado por: 249447 - Valverde Vasquez, Francisco Javier");
         _;
@@ -23,18 +24,28 @@ contract Cine249447 {
     }
 
     function agregarElemento(uint256 _id, string memory _titulo, uint256 _duracion) public ejecutadoPor {
-        // Validar id no repetido
         for (uint256 i = 0; i < peliculas.length; i++) {
             require(peliculas[i].id != _id, "Pelicula con ese ID ya existe");
         }
-        // Validar que la duracion sea mayor a 0
         require(_duracion > 0, "La duracion debe ser mayor a 0");
-
         peliculas.push(Pelicula(_id, _titulo, _duracion, true));
     }
 
     function contarElementos() public view ejecutadoPor returns (uint256) {
         return peliculas.length;
+    }
+
+    function inactivarElemento(uint256 _posicion) public ejecutadoPor {
+        require(_posicion < peliculas.length, "Posicion fuera de rango");
+        peliculas[_posicion].estado = false;
+    }
+
+    function pintarElementosActivos() public view ejecutadoPor {
+        for (uint256 i = 0; i < peliculas.length; i++) {
+            if (peliculas[i].estado == true) {
+                console.log("Pelicula activa:", peliculas[i].id, peliculas[i].titulo);
+            }
+        }
     }
 
 }
